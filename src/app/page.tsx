@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import FloatingLogos from './components/floatindLogos';
 
 export default function Home() {
   return (
@@ -6,7 +7,7 @@ export default function Home() {
       <h1 className="text-4xl font-bold text-gray-900 mb-4">
         Olá, eu sou Winnícius
       </h1>
-      <p className="text-xl text-gray-700 mb-8">
+      <p className="text-xl text-gray-700 mb-28">
         Desenvolvedor Full Stack e Tech Lead com experiência em soluções inovadoras
       </p>
       <Link
@@ -15,6 +16,9 @@ export default function Home() {
       >
         Conheça meus projetos
       </Link>
+
+      <FloatingLogos />
+      <p className='text-gray-300 text-xs'>Canais de exibição | Apoio | Patrocício | Realização</p>
     </div>
   );
 }
