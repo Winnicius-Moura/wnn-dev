@@ -1,4 +1,3 @@
-import Image from 'next/image'
 
 const logos = [
   { id: 1, src: '/logos/logo1.svg', alt: 'Logo 1' },
@@ -20,7 +19,7 @@ export default function FloatingLogos() {
     <div className="overflow-hidden whitespace-nowrap relative w-full my-8">
       <div className="animate-scroll inline-block">
         {logos.map((partner) => (
-          <Image
+          <img
             key={partner.id}
             src={partner.src}
             alt={partner.alt}
@@ -28,7 +27,7 @@ export default function FloatingLogos() {
           />
         ))}
         {logos.map((partner) => (
-          <Image
+          <img
             key={`${partner.id}-copy`}
             src={partner.src}
             alt={partner.alt}
