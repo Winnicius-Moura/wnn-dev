@@ -7,7 +7,7 @@ const logos = [
   { id: 5, src: '/logos/logo5.png', alt: 'Logo 5' },
   { id: 6, src: '/logos/logo6.png', alt: 'Logo 6' },
   { id: 7, src: '/logos/logo7.png', alt: 'Logo 7' },
-  { id: 8, src: '/logos/logo8.png', alt: 'Logo 8' },
+  { id: 8, src: '/logos/logo8.svg', alt: 'Logo 8' },
   { id: 9, src: '/logos/logo9.png', alt: 'Logo 9' },
   { id: 10, src: '/logos/logo10.png', alt: 'Logo 10' },
   { id: 11, src: '/logos/logo11.svg', alt: 'Logo 11' },

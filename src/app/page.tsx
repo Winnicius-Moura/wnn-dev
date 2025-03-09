@@ -4,6 +4,11 @@ import FloatingLogos from './components/floatindLogos';
 export default function Home() {
   return (
     <div className="min-h-screen bg-gray-50 flex flex-col justify-center items-center text-center p-8">
+      <img
+        src={'/icon-wnn.png'}
+        alt={'wnn icon'}
+        className="h-10 w-fit my-4"
+      />
       <h1 className="text-4xl font-bold text-gray-900 mb-4">
         Olá, eu sou Winnícius
       </h1>
@@ -12,7 +17,7 @@ export default function Home() {
       </p>
       <Link
         href="/projects"
-        className="bg-primary text-gray-900 px-6 py-3 rounded-lg hover:bg-primary-dark transition-colors"
+        className="bg-primary text-gray-900 px-6 py-3 rounded-lg hover:bg-primary-dark transition-colors animate-pulse"
       >
         Conheça meus projetos
       </Link>
