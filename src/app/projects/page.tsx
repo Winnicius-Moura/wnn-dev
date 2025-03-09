@@ -6,7 +6,7 @@ import { Project, projects } from '../data/projects'
 export default function Projects() {
   return (
     <div className="min-h-screen bg-gray-50 md:p-6 p-2">
-      <div className='flex justify-between items-center'>
+      <div className='flex justify-between items-center max-w-screen-lg mx-auto'>
         <h1 className="text-4xl font-bold text-gray-900">Projetos</h1>
         <div className="flex items-center space-x-4">
           <img
@@ -28,6 +28,13 @@ export default function Projects() {
           <ProjectCard key={project.id} project={project} />
         ))}
       </div>
+      <p className='text-black text-center mt-8 text-sm'>Sessão "Memories" em contrução, onde irei exibir projetos realizados durante os cursos de Tecnologia da Informação, Jogos Digitais e Engenharia de Software.</p>
+      <img
+        src={'/icon-wnn.png'}
+        alt={'wnn icon'}
+        className="h-10 w-fit mt-4 mx-auto hover:cursor-pointer hover:animate-pulse"
+        onClick={() => history.back()}
+      />
     </div>
   )
 }
@@ -38,20 +45,20 @@ function ProjectCard({ project }: { project: Project }) {
   const videoId = youtubeUrl?.split('v=')[1]?.split('&')[0]
 
   const nextImage = () => {
-    setCurrentImageIndex((prevIndex) => (prevIndex + 1) % project.images.length)
+    setCurrentImageIndex((prevIndex) => (prevIndex + 1) % project?.images!.length)
   }
 
   const prevImage = () => {
     setCurrentImageIndex((prevIndex) =>
-      prevIndex === 0 ? project.images.length - 1 : prevIndex - 1
+      prevIndex === 0 ? project?.images!.length - 1 : prevIndex - 1
     )
   }
 
   return (
-    <div className="bg-white md:p-6 p-2 rounded-lg shadow-lg">
+    <div className="bg-white md:p-6 p-2 rounded-lg shadow-lg max-w-screen-lg mx-auto">
       <h2 className="text-2xl font-bold text-gray-900 mb-4">{project.name}</h2>
       <p className="text-gray-500 text-sm mb-4">{project?.subtitle}</p>
-      <div className="relative mb-4">
+      {project.images && <div className="relative mb-4">
         <div className="overflow-hidden rounded-lg">
           <img
             src={project.images[currentImageIndex]}
@@ -59,20 +66,23 @@ function ProjectCard({ project }: { project: Project }) {
             className="w-full h-96 object-cover"
           />
         </div>
-        <button
-          onClick={prevImage}
-          className="absolute left-2 top-1/2 transform -translate-y-1/2 bg-gray-800 text-white p-2 rounded-full"
-        >
-          &lt;
-        </button>
-        <button
-          onClick={nextImage}
-          className="absolute right-2 top-1/2 transform -translate-y-1/2 bg-gray-800 text-white p-2 rounded-full"
-        >
-          &gt;
-        </button>
-        <p className="text-gray-700 mt-4">{project.description}</p>
-      </div>
+        {project.images.length > 1 ? <div>
+          <button
+            onClick={prevImage}
+            className="absolute left-2 top-1/2 transform -translate-y-1/2 bg-gray-800 text-white p-2 rounded-full"
+          >
+            &lt;
+          </button>
+          <button
+            onClick={nextImage}
+            className="absolute right-2 top-1/2 transform -translate-y-1/2 bg-gray-800 text-white p-2 rounded-full"
+          >
+            &gt;
+          </button>
+        </div> : null}
+      </div>}
+
+      <p className="text-gray-700 mt-4">{project.description}</p>
 
       <div className="mb-4">
         <h3 className="text-xl font-bold text-gray-900 mb-2">Tecnologias Utilizadas</h3>
