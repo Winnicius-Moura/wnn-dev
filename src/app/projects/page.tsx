@@ -6,9 +6,24 @@ import { Project, projects } from '../data/projects'
 export default function Projects() {
   return (
     <div className="min-h-screen bg-gray-50 md:p-6 p-2">
-      <h1 className="text-4xl font-bold text-gray-900 mb-8">Meus Projetos</h1>
+      <div className='flex justify-between items-center'>
+        <h1 className="text-4xl font-bold text-gray-900">Projetos</h1>
+        <div className="flex items-center space-x-4">
+          <img
+            src={'/icon-wnn.png'}
+            alt={'wnn icon'}
+            className="h-8 w-fit hover:cursor-pointer"
+            onClick={() => history.back()}
+          />
+          <img
+            src={'/avatar.jpg'}
+            alt={'avatar wnn icon'}
+            className="md:block hidden h-16 w-fit rounded-full border-[1px] border-black "
+          />
+        </div>
+      </div>
 
-      <div className="space-y-8">
+      <div className="space-y-8 mt-4">
         {projects.map((project) => (
           <ProjectCard key={project.id} project={project} />
         ))}
@@ -19,8 +34,8 @@ export default function Projects() {
 
 function ProjectCard({ project }: { project: Project }) {
   const [currentImageIndex, setCurrentImageIndex] = useState(0)
-  const youtubeUrl = project.youtubeId;
-  const videoId = youtubeUrl!.split('v=')[1].split('&')[0]
+  const youtubeUrl = project?.youtubeId;
+  const videoId = youtubeUrl?.split('v=')[1]?.split('&')[0]
 
   const nextImage = () => {
     setCurrentImageIndex((prevIndex) => (prevIndex + 1) % project.images.length)
@@ -75,7 +90,7 @@ function ProjectCard({ project }: { project: Project }) {
 
       {project.youtubeId && (
         <div className="mb-4">
-          <h3 className="text-base font-bold text-gray-900 mb-2">Assista o vídeo a seguir para saber mais sobre o projeto craque do jogo</h3>
+          <h3 className="text-base font-bold text-gray-900 mb-2">Assista o vídeo a seguir para saber mais sobre o projeto {project.name}</h3>
           <a
             href={project.youtubeId}
             target="_blank"
