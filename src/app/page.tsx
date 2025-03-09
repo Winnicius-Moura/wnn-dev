@@ -1,11 +1,14 @@
 import Link from 'next/link'
 import FloatingLogos from './components/floatindLogos'
+import Image from 'next/image'
+
+
 import { FaPhone, FaEnvelope, FaLinkedin, FaGithub } from 'react-icons/fa'
 
 export default function Home() {
   return (
     <div className="min-h-screen bg-gray-50 flex flex-col justify-center items-center text-center p-8">
-      <img
+      <Image
         src={'/icon-wnn.png'}
         alt={'wnn icon'}
         className="h-10 w-fit my-4 "

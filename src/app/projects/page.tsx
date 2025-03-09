@@ -1,5 +1,5 @@
 'use client'
-
+import Image from 'next/image'
 import { useState } from 'react'
 import { Project, projects } from '../data/projects'
 
@@ -9,13 +9,13 @@ export default function Projects() {
       <div className='flex justify-between items-center max-w-screen-lg mx-auto'>
         <h1 className="text-4xl font-bold text-gray-900">Projetos</h1>
         <div className="flex items-center space-x-4">
-          <img
+          <Image
             src={'/icon-wnn.png'}
             alt={'wnn icon'}
             className="h-8 w-fit hover:cursor-pointer"
             onClick={() => history.back()}
           />
-          <img
+          <Image
             src={'/avatar.jpg'}
             alt={'avatar wnn icon'}
             className="md:block hidden h-16 w-fit rounded-full border-[1px] border-black "
@@ -28,8 +28,8 @@ export default function Projects() {
           <ProjectCard key={project.id} project={project} />
         ))}
       </div>
-      <p className='text-black text-center mt-8 text-sm'>Sessão "Memories" em contrução, onde irei exibir projetos realizados durante os cursos de Tecnologia da Informação, Jogos Digitais e Engenharia de Software.</p>
-      <img
+      <p className='text-black text-center mt-8 text-sm'>Sessão Memories em contrução, onde irei exibir projetos realizados durante os cursos de Tecnologia da Informação, Jogos Digitais e Engenharia de Software.</p>
+      <Image
         src={'/icon-wnn.png'}
         alt={'wnn icon'}
         className="h-10 w-fit mt-4 mx-auto hover:cursor-pointer hover:animate-pulse"
@@ -60,7 +60,7 @@ function ProjectCard({ project }: { project: Project }) {
       <p className="text-gray-500 text-sm mb-4">{project?.subtitle}</p>
       {project.images && <div className="relative mb-4">
         <div className="overflow-hidden rounded-lg">
-          <img
+          <Image
             src={project.images[currentImageIndex]}
             alt={`Imagem do projeto ${project.name}`}
             className="w-full h-96 object-cover"
@@ -107,7 +107,7 @@ function ProjectCard({ project }: { project: Project }) {
             rel="noopener noreferrer"
             className="block"
           >
-            <img
+            <Image
               src={`https://img.youtube.com/vi/${videoId}/hqdefault.jpg`}
               alt={`Thumbnail do vídeo do projeto ${project.name}`}
               className="rounded-lg w-full h-64 object-cover"
